@@ -41,7 +41,7 @@ export const validateToken = async () => {
  // Optional: Return the response body for further use
 };
 export const login = async (data: LoginFormData) => {
-    const response = await fetch(`$/api/auth/login`, {
+    const response = await fetch(`$api/auth/login`, {
       method: "POST",
       credentials:"include",
       headers: {
@@ -60,7 +60,7 @@ export const login = async (data: LoginFormData) => {
     return responseBody; // Optional: Return the response body for further use
   };
   export const logout = async () => {
-    const response = await fetch(`$/api/auth/logout`,{
+    const response = await fetch(`$api/auth/logout`,{
         credentials:"include",
         method:"POST",
     });
