@@ -7,6 +7,11 @@ import {v2 as cloudinary} from "cloudinary";
 import authRoutes from './routes/auth'
 import cookieParser = require('cookie-parser');
 import path = require('path');
+cloudinary.config({
+  cloud_name:process.env.CLOUDINARY_CLOUD_NAME,
+  api_key:process.env.CLOUDINARY_API_KEY,
+  api_secret:process.env.CLOUDINARY_API_SECRET,
+})
 mongoose.connect(process.env.MONGO_URL as string).then(()=>{
   console.log("Connected to database",process.env.MONGO_URL)
 })
