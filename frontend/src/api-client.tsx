@@ -6,7 +6,7 @@ import { LoginFormData } from "./pages/SignIn";
 const api_url = import.meta.env.VITE_API_BASE_URL || "";
 
 export const register = async (formData: RegisterFormData) => {
-    const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/user/register`, {
+    const response = await fetch(`${api_url}/api/user/register`, {
         method: "POST",
         credentials:"include",//set cookies to browser
         headers: {
@@ -14,7 +14,7 @@ export const register = async (formData: RegisterFormData) => {
         },
         body: JSON.stringify(formData),
     });
-    console.log("hi,",import.meta.env.VITE_API_BASE_URL)
+    console.log("hi,",api_url)
     const responseBody = await response.json();
 
     if (!response.ok) {
@@ -25,7 +25,7 @@ export const register = async (formData: RegisterFormData) => {
     return responseBody; // Optional: Return the response body for further use
 };
 export const validateToken = async () => {
-    const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auth/validate-token`, {
+    const response = await fetch(`${api_url}/api/auth/validate-token`, {
        
         credentials:"include",//set cookies to browser
    
@@ -41,7 +41,7 @@ export const validateToken = async () => {
  // Optional: Return the response body for further use
 };
 export const login = async (data: LoginFormData) => {
-    const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auth/login`, {
+    const response = await fetch(`${api_url}/api/auth/login`, {
       method: "POST",
       credentials:"include",
       headers: {
@@ -60,7 +60,7 @@ export const login = async (data: LoginFormData) => {
     return responseBody; // Optional: Return the response body for further use
   };
   export const logout = async () => {
-    const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auth/logout`,{
+    const response = await fetch(`${api_url}/api/auth/logout`,{
         credentials:"include",
         method:"POST",
     });
