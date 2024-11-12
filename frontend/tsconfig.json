@@ -1,0 +1,22 @@
+
+  {
+    "compilerOptions": {
+      "target": "ESnext", // or "es2020" / "es2022"
+      "module": "ESnext", // ensures compatibility with ES modules
+      "moduleResolution": "Node",
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "strict": true,
+      "jsx": "react-jsx", // or "react" based on your React version
+      "skipLibCheck": true, // speeds up the build by skipping type checking of declaration files
+      "forceConsistentCasingInFileNames": true,
+      "isolatedModules": true,
+      "types": ["vite/client"] // helps in environments like Vite
+    },
+  
+  "files": [],
+  "references": [
+
+    { "path": "./tsconfig.node.json" }
+  ]
+}

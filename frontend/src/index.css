@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+/* Smooth slide-in and slide-out animations */
+.slideInDown {
+  animation: slideInDown 0.5s ease forwards;
+}
+
+.slideOutUp {
+  animation: slideOutUp 0.5s ease forwards;
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.animated-text {
+  position: relative;
+  display: inline-block;
+  color: white;
+  overflow: hidden;
+  background: linear-gradient(135deg, #90E0EF 50%, #FF6B6B 50%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: fillColor 4s linear infinite alternate;
+}
+
+@keyframes fillColor {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.dots {
+  display: inline-block;
+  animation: bounce 1.5s infinite;
+}
+
+.dots:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dots:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.dots:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.animated-heading {
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  animation: fadeInUp 1.5s ease forwards, pulse 3s ease-in-out infinite;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
