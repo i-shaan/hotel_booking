@@ -35,15 +35,13 @@ app.use(
 app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 
 // Fallback route for client-side routing
-app.get("*", (req:Request, res) => {
-  res.sendFile(path.join(__dirname, "../../frontend/dist", "index.html"));
-});
+
 
 app.get('/', (req: Request, res: Response) => {
   res.send("Welcome to the API!");
 });
 app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
-app.listen(5050,()=>{
+app.listen(8000,()=>{
     console.log("Server is running on port 8000")
 })

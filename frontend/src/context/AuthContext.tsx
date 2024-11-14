@@ -1,11 +1,11 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import  { createContext, useContext} from "react";
 import { useQuery } from "react-query";
 import * as apiClient from '../api-client';
 
 // Define types for the context
 type AppContextType = {
   isLoggedIn: boolean;
-  refreshAuthStatus: () => void;
+
 };
 
 // Create a context with a default value
@@ -17,28 +17,21 @@ export const AppContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
 
   // Check token validity with react-query's useQuery
   const { isError } = useQuery("validateToken", apiClient.validateToken, {
     retry: false,
-    onSuccess: () => setIsLoggedIn(true),
-    onError: () => setIsLoggedIn(false),
+ 
   });
 
   // Manually refresh auth status
-  const refreshAuthStatus = () => {
-    apiClient.validateToken()
-      .then(() => setIsLoggedIn(true))
-      .catch(() => setIsLoggedIn(false));
-  };
 
-  useEffect(() => {
-    refreshAuthStatus(); // Check token status on mount
-  }, []);
+
+ 
 
   return (
-    <AppContext.Provider value={{ isLoggedIn:!isError, refreshAuthStatus }}>
+    <AppContext.Provider value={{ isLoggedIn:!isError}}>
       {children}
     </AppContext.Provider>
   );

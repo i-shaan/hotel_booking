@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './Layouts/Layout';
-import React from 'react';
+
 import Register from "../src/pages/Register"
 import '@fortawesome/fontawesome-free/css/all.css';
 import { ToastContainer } from 'react-toastify';

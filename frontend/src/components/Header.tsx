@@ -1,11 +1,11 @@
-import React from "react";
+
 import { Link, useNavigate } from "react-router-dom";
 import { useAppContext } from '../context/AuthContext';
 import * as apiClient from '../api-client';
 import { useMutation, useQueryClient } from "react-query";
 
 const Header = () => {
-  const { isLoggedIn, refreshAuthStatus } = useAppContext();
+  const { isLoggedIn} = useAppContext();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const mutation = useMutation(apiClient.logout,{
@@ -25,6 +25,7 @@ const Header = () => {
   };
 
   return (
+  
     <div className="fade-in h-auto bg-[#0077B6] flex flex-col p-3 md:p-7 lg:p-9">
       <div className='flex items-center justify-between mb-4'>
       <div className="font-bold text-2xl text-[#90E0EF] animated-heading">
@@ -38,7 +39,7 @@ const Header = () => {
   to="/my-bookings"
   className="text-white relative transition duration-300 hover:text-[#90E0EF] after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] after:bg-[#FF6B6B] after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100"
 >
-  My Bookings
+  My Booking
 </Link>
 <Link
   to="/my-hotels"
@@ -75,6 +76,7 @@ const Header = () => {
 </div>
 
     </div>
+    
   );
 };
 

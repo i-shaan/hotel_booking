@@ -1,9 +1,9 @@
-import React from 'react';
+
 import { useForm } from "react-hook-form";
 import { useMutation, useQueryClient } from 'react-query';
 import { Link, useNavigate } from 'react-router-dom';
 import * as apiClient from '../api-client';
-import { useAppContext } from '../context/AuthContext';
+
 export type LoginFormData = {
   email: string;
   password: string;
@@ -12,7 +12,7 @@ export type LoginFormData = {
 const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<LoginFormData>();
   const navigate = useNavigate();
-  const {refreshAuthStatus} = useAppContext();
+
   const queryClient = useQueryClient();
   const mutation = useMutation(apiClient.login, {
     onSuccess: async() => {
